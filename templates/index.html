@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python IDE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="editor-container">
+            <div id="monaco-editor"></div>
+        </div>
+        <div class="resize-handle"></div>
+        <div class="output-container" style="height: 300px;">
+            <div id="output" class="output"></div>
+        </div>
+        <div id="interactive-input-container" style="display: none; margin-top: 10px;">
+            <input type="text" id="interactive-input" placeholder="Введите ваш ввод..." />
+            <button id="send-input-button" onclick="sendInput()">Отправить</button>
+        </div>
+        <div class="controls">
+            <button onclick="window.runCode()">Запустить Код</button>
+            <button onclick="window.clearOutput()">Очистить Консоль</button>
+            <button id="cancelButton" onclick="window.cancelExecution()" disabled>Отменить Выполнение</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
